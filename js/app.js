@@ -1,4 +1,4 @@
-(function ($, window, document, undefined) {
+(function($, window, document, undefined) {
 
     'use-strict';
 
@@ -6,7 +6,7 @@
 
     function setWidth() {
 
-        winWidth = $(window).innerWidth(); //This may need to be width()	
+        winWidth = $(window).innerWidth(); //This may need to be width()    
         socialHeight = (winWidth > 640) ? 120 : 160;
 
     }
@@ -15,17 +15,17 @@
 
     $(window).on('resize', setWidth);
     //Dom Ready
-    $(function () {
+    $(function() {
 
         var didScroll = false,
             icon = $(".huge-title, #godown"),
             $window = $(window);
 
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             didScroll = true;
         });
 
-        window.setInterval(function () {
+        window.setInterval(function() {
             if (didScroll) {
                 if (1 - $window.scrollTop() / 200 > -20) {
                     icon.css({
@@ -37,7 +37,7 @@
         }, 50);
 
         //Social Scroll
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             if ($(window).scrollTop() < 300) {
                 $('#socialsection').css({
                     opacity: "0"
@@ -50,13 +50,13 @@
         });
 
         //Menu toggle
-        $('.menu').on('click', function () {
+        $('.menu').on('click', function() {
             $('.nav').animate({
                 height: 'toggle'
             });
         });
 
-        $('#socialsection').on('click', function () {
+        $('#socialsection').on('click', function() {
 
             if ($(this).hasClass('hide')) {
                 $(this).animate({
@@ -71,23 +71,23 @@
 
         //Knob
         $(".knob").knob({
-            change: function (value) {
+            change: function(value) {
                 //console.log("change : " + value);
             },
-            release: function (value) {
+            release: function(value) {
                 //console.log(this.$.attr('value'));
                 console.log("release : " + value);
             },
-            cancel: function () {
+            cancel: function() {
                 console.log("cancel : ", this);
             },
-            draw: function () {
+            draw: function() {
 
                 // "cr3ativ" case
                 if (this.$.data('skin') == 'cr3ativ') {
 
                     var a = this.angle(this.cv) // Angle
-                    ,
+                        ,
                         sa = this.startAngle // Previous start angle
                         ,
                         sat = this.startAngle // Start angle
@@ -131,25 +131,25 @@
             easing: 'easeInOutExpo',
             offsetTop: -75,
             speed: 800,
-            onInit: function (base) {
+            onInit: function(base) {
 
-                if (base.initHash != '' && $(base.initHash).length > 0) {
-                    window.location.hash = 'hash_' + base.initHash.substring(1);
-                    window.scrollTo(0, 0);
+                    if (base.initHash != '' && $(base.initHash).length > 0) {
+                        window.location.hash = 'hash_' + base.initHash.substring(1);
+                        window.scrollTo(0, 0);
 
-                    $(window).load(function () {
+                        $(window).load(function() {
 
-                        timer = setTimeout(function () {
-                            $(base.scrollEl).animate({
-                                scrollTop: $(base.initHash).offset().top
-                            }, base.options.speed, base.options.easing);
-                        }, 2000); // setTimeout
-                    }); // window.load
-                }; // if window.location.hash
-            } // onInit
+                            timer = setTimeout(function() {
+                                $(base.scrollEl).animate({
+                                    scrollTop: $(base.initHash).offset().top
+                                }, base.options.speed, base.options.easing);
+                            }, 2000); // setTimeout
+                        }); // window.load
+                    }; // if window.location.hash
+                } // onInit
         });
 
-        //Video Wallpaper Settings - alter the URL's to your converted videos		
+        //Video Wallpaper Settings - alter the URL's to your converted videos       
         $("#video_element").wallpaper({
             source: {
                 mp4: "videos/clouds1.mp4",
@@ -170,28 +170,28 @@
         //owlCarousel - these settings are for the testimonials and sub heading under your name title at the top
         $(".testimonials").owlCarousel({
 
-            // Most important owl features
-            items: 1,
-            itemsCustom: false,
-            itemsDesktop: [1199, 1],
-            itemsDesktopSmall: [980, 1],
-            itemsTablet: [768, 1],
-            itemsTabletSmall: false,
-            itemsMobile: [479, 1],
-            singleItem: false,
-            itemsScaleUp: false,
+                // Most important owl features
+                items: 1,
+                itemsCustom: false,
+                itemsDesktop: [1199, 1],
+                itemsDesktopSmall: [980, 1],
+                itemsTablet: [768, 1],
+                itemsTabletSmall: false,
+                itemsMobile: [479, 1],
+                singleItem: false,
+                itemsScaleUp: false,
 
-            //Basic Speeds - set your speeds in milliseconds here!
-            slideSpeed: 400,
-            paginationSpeed: 800,
-            rewindSpeed: 1000,
+                //Basic Speeds - set your speeds in milliseconds here!
+                slideSpeed: 400,
+                paginationSpeed: 800,
+                rewindSpeed: 1000,
 
-            //Autoplay
-            autoPlay: true,
-            stopOnHover: true
+                //Autoplay
+                autoPlay: true,
+                stopOnHover: true
 
-        })
-        //owlCarousel - these settings are for the client logos
+            })
+            //owlCarousel - these settings are for the client logos
         $(".owl-example").owlCarousel({
 
             // Most important owl features
@@ -270,72 +270,72 @@
         })
 
         //Contact Form
-        $(document).on('submit', 'form#contact_form', function (e) {
-        
+        $(document).on('submit', 'form#contact_form', function(e) {
+
             e.preventDefault();
-        
+
             $('form#contact_form .error').remove();
-        
+
             var hasError = false;
-        
-            $('.requiredField').each(function () {
-        
+
+            $('.requiredField').each(function() {
+
                 if ($.trim($(this).val()) == '') {
-        
+
                     var labelText = $(this).prev('label').text();
-        
+
                     $(this).parent().append('<span class="error">Please complete the required fields.</span>');
-        
+
                     $(this).addClass('inputError');
-        
+
                     hasError = true;
-        
+
                 } else if ($(this).hasClass('email')) {
-        
+
                     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        
+
                     if (!emailReg.test($.trim($(this).val()))) {
-        
+
                         var labelText = $(this).prev('label').text();
-         
-						$(this).parent().append('<span class="error">You entered an invalid email</span>');
-                 
+
+                        $(this).parent().append('<span class="error">You entered an invalid email</span>');
+
                         $(this).addClass('inputError');
-                 
+
                         hasError = true;
-                 
+
                     }
-                
+
                 }
-            
+
             });
-            
+
             if (!hasError) {
-            
-                $('form#contact_form input.submit').fadeOut('normal', function () {
-            
+
+                $('form#contact_form input.submit').fadeOut('normal', function() {
+
                     $(this).parent().append('');
-            
+
                 });
-            
+
                 var formInput = $(this).serialize();
-            
-                $.post($(this).attr('action'), formInput, function (data) {
-            
-                    $('form#contact_form').slideUp("fast", function () {
-            
+
+                $.post($(this).attr('action'), formInput, function(data) {
+
+                    $('form#contact_form').slideUp("fast", function() {
+
                         $(this).before('<p class="success">Thank you! Your email was successfully sent. I will contact you as soon as possible.</p>');
-            
+
                     });
-            
+
                 });
-            
+
             }
 
             return false;
 
         });
-        
+
         new WOW().init();
     });
 
