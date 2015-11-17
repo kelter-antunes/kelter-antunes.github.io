@@ -1,5 +1,3 @@
-function handleData(data, node)
-
 
 $(function() {
     $('.ajax').jstree({
