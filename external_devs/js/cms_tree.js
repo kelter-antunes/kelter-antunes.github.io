@@ -1,4 +1,4 @@
-
+var createdNodeID;
 $(function() {
     $('.ajax').jstree({
         'core': {
@@ -21,11 +21,13 @@ $(function() {
                     console.log(node_position);
                     console.log(more);
 
+                    createdNodeID = node.id;
 
 
                     $.ajax({
                         url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
                         type: 'GET',
+                        async: false,
                         data: {
                             'operation': operation,
                             //'node': node.id,
