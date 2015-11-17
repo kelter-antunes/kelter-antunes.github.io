@@ -1,6 +1,5 @@
-var SessionUser = "+ Session.UserId +";
 $(function() {
-    $('#" + ajax.Id + "').jstree({
+    $('.ajax').jstree({
         'core': {
             'themes': {
                 'name': 'proton',
@@ -21,7 +20,7 @@ $(function() {
                     console.log(node_position);
                     console.log(more);
 
-                    
+
 
                     $.ajax({
                             url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
