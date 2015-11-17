@@ -36,11 +36,12 @@ $(function() {
                             'userid': SessionUser
 
                         },
-                        success: function(data, textStatus, xhr) {
+                        success: function(node, data, textStatus, xhr) {
 
                             console.log(data);
                             console.log(textStatus);
                             console.log(xhr);
+                            console.log(node);
                         }
                     });
 
