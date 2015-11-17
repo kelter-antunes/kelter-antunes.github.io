@@ -1,3 +1,6 @@
+function handleData(data, node)
+
+
 $(function() {
     $('.ajax').jstree({
         'core': {
@@ -23,29 +26,23 @@ $(function() {
 
 
                     $.ajax({
-                            url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
-                            type: 'GET',
-                            data: {
-                                'operation': operation,
-                                //'node': node.id,
-                                'node_parent': node_parent.id,
-                                'node_position': node_position,
-                                'userid': SessionUser
+                        url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
+                        type: 'GET',
+                        data: {
+                            'operation': operation,
+                            //'node': node.id,
+                            'node_parent': node_parent.id,
+                            'node_position': node_position,
+                            'userid': SessionUser
 
-                            },
-                        })
-                        .done(function(event) {
+                        },
+                        success: function(data, textStatus, xhr) {
 
-                            console.log('success');
-                            console.log(event);
-                            node.id = event;
-                        })
-                        .fail(function() {
-                            console.log('error');
-                        })
-                        .always(function() {
-                            console.log('complete');
-                        });
+                            console.log(data);
+                            console.log(textStatus);
+                            console.log(xhr);
+                        }
+                    });
 
 
 
