@@ -37,6 +37,7 @@ $(function() {
                         .done(function(event) {
 
                             console.log('success');
+                            console.log(event);
                             node.id = event;
                         })
                         .fail(function() {
