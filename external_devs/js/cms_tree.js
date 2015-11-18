@@ -77,7 +77,7 @@ $(function() {
                         });
 
 
-                        //node.id = createdNodeID;
+                        $('.ajax').jstree(true).set_id(node, createdNodeID);
                         createdNodeID = 0;
                     };
 
