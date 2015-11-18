@@ -36,7 +36,7 @@ $(function() {
                             'userid': SessionUser
 
                         },
-                        success: function(node, data, textStatus, xhr) {
+                        success: function(data, textStatus, xhr) {
 
                             console.log(data);
                             console.log(textStatus);
