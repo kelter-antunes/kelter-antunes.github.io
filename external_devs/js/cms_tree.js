@@ -112,6 +112,44 @@ $(function() {
                         .always(function() {
                             console.log('complete');
                         });
+
+
+                } else if (operation === 'delete_node') {
+
+                    console.log('#### delete_node  start #####');
+
+                    console.log(node);
+                    console.log(node_parent);
+                    console.log(node_position);
+                    console.log(more);
+
+
+                    $.ajax({
+                        url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
+                        type: 'GET',
+                        async: true,
+                        data: {
+                            'operation': operation,
+                            'node': node.id,
+                            'node_parent': node_parent.id,
+                            'node_position': node_position,
+                            'userid': SessionUser
+
+                        },
+                        success: function(data, textStatus, xhr) {
+
+                            console.log(data);
+                            console.log(textStatus);
+                            console.log(xhr);
+
+                            createdNodeID = data;
+                        }
+                    });
+
+
+
+                    console.log('#### delete_node  end #####');
+
                 }
 
 
