@@ -92,6 +92,7 @@ $(function() {
 
                     console.log('#### rename_node  end #####');
 
+                    return true;
 
                 } else if (operation === 'move_node') {
                     $.ajax({
