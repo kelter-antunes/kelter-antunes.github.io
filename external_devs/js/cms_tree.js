@@ -61,7 +61,7 @@ $(function() {
                             async: false,
                             data: {
                                 'operation': operation,
-                                'node': node.id,
+                                'node': createdNodeID,
                                 'node_parent': node_parent.id,
                                 'node_position': node_position,
                                 'userid': SessionUser
