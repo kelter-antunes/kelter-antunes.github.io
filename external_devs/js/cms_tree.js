@@ -25,7 +25,7 @@ $(function() {
                     $.ajax({
                         url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
                         type: 'GET',
-                        async: false,
+                        async: true,
                         data: {
                             'operation': operation,
                             //'node': node.id,
@@ -55,8 +55,29 @@ $(function() {
 
 
                     if (createdNodeID !== 0) {
-                        node.id = createdNodeID;
+                        $.ajax({
+                            url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
+                            type: 'GET',
+                            async: false,
+                            data: {
+                                'operation': operation,
+                                'node': node.id,
+                                'node_parent': node_parent.id,
+                                'node_position': node_position,
+                                'userid': SessionUser
 
+                            },
+                            success: function(data, textStatus, xhr) {
+
+                                console.log(data);
+                                console.log(textStatus);
+                                console.log(xhr);
+
+                            }
+                        });
+
+
+                        node.id = createdNodeID;
                         createdNodeID = 0;
                     };
 
@@ -65,31 +86,6 @@ $(function() {
                     console.log(node_parent);
                     console.log(node_position);
                     console.log(more);
-
-
-                    $.ajax({
-                        url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
-                        type: 'GET',
-                        async: false,
-                        data: {
-                            'operation': operation,
-                            'node': node.id,
-                            'node_parent': node_parent.id,
-                            'node_position': node_position,
-                            'userid': SessionUser
-
-                        },
-                        success: function(data, textStatus, xhr) {
-
-                            console.log(data);
-                            console.log(textStatus);
-                            console.log(xhr);
-
-                        }
-                    });
-
-
-
                     console.log('#### rename_node  end #####');
 
                     return true;
