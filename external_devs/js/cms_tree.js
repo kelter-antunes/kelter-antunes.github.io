@@ -77,7 +77,7 @@ $(function() {
                         });
 
 
-                        node.id = createdNodeID;
+                        //node.id = createdNodeID;
                         createdNodeID = 0;
                     };
 
