@@ -1,4 +1,4 @@
-var createdNodeID;
+var createdNodeID = 0;
 $(function() {
     $('.ajax').jstree({
         'core': {
@@ -21,8 +21,6 @@ $(function() {
                     console.log(node_position);
                     console.log(more);
 
-                    createdNodeID = node.id;
-
 
                     $.ajax({
                         url: '//dp1dev.outsystems.com/CMSCore/rest/cms_private/folderOperation',
@@ -41,7 +39,8 @@ $(function() {
                             console.log(data);
                             console.log(textStatus);
                             console.log(xhr);
-                            console.log(node);
+
+                            createdNodeID = data;
                         }
                     });
 
@@ -51,7 +50,17 @@ $(function() {
 
                 } else if (operation === 'rename_node') {
 
+
                     console.log('#### rename_node  start #####');
+
+
+                    if (createdNodeID !== 0) {
+                        node.id = createdNodeID;
+
+                        createdNodeID = 0;
+                    };
+
+
                     console.log(node);
                     console.log(node_parent);
                     console.log(node_position);
