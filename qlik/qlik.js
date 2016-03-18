@@ -8,7 +8,7 @@
  */
 var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf("/extensions") + 1);
 var config = {
-    host: 'https://insights.outsystems.net',
+    host: 'http://kelter.ninja',
     prefix: prefix,
     port: window.location.port,
     isSecure: window.location.protocol === "https:"
@@ -17,7 +17,7 @@ require.config({
     baseUrl: (config.isSecure ? "https://" : "http://") + config.host + (config.port ? ":" + config.port : "") + config.prefix + "resources"
 });
 
-require(["js/qlik"], function(qlik) {
+require(["qlik/qlik"], function(qlik) {
     qlik.setOnError(function(error) {
         alert(error.message);
     });
