@@ -8,7 +8,7 @@
  */
 var prefix = window.location.pathname.substr(0, window.location.pathname.toLowerCase().lastIndexOf("/extensions") + 1);
 var config = {
-    host: window.location.hostname,
+    host: 'https://insights.outsystems.net',
     prefix: prefix,
     port: window.location.port,
     isSecure: window.location.protocol === "https:"
