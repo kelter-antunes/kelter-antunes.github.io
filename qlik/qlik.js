@@ -41,3 +41,5 @@ require(["js/qlik"], function(qlik) {
     //create cubes and lists -- inserted here --
 
 });
+
+
